@@ -1,0 +1,10 @@
+Panzer Caveman 25th Anniversary Edition
+
+
+Dependencies:
+DerelictGL3
+DerelictSDL2
+DerelictASSIMP3
+DerelictLua
+DerelictIL
+aws_wrapd (https://github.com/Genocidicbunny/aws_wrap)

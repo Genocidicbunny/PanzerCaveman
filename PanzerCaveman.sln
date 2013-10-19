@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{002A2DE9-8BB6-484D-9802-7E4AD4084715}") = "PanzerCaveman", "PanzerCaveman\PanzerCaveman.visualdproj", "{4681FFA2-9B1C-45B0-9721-42D38AC47C03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4681FFA2-9B1C-45B0-9721-42D38AC47C03}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4681FFA2-9B1C-45B0-9721-42D38AC47C03}.Debug|Win32.Build.0 = Debug|Win32
+		{4681FFA2-9B1C-45B0-9721-42D38AC47C03}.Release|Win32.ActiveCfg = Release|Win32
+		{4681FFA2-9B1C-45B0-9721-42D38AC47C03}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
