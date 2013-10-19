@@ -83,7 +83,7 @@
   <cv2pdbOptions />
   <objfiles />
   <linkswitches />
-  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictSDL2.lib;DerelictASSIMP3.lib;DerelictIL.lib;DerelictLua.lib;aws_wrapd.lib</libfiles>
+  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictSDL2.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib</libfiles>
   <libpaths>&quot;$(ProjectDir)\lib\&quot;</libpaths>
   <deffile />
   <resfile />
@@ -177,7 +177,7 @@
   <cv2pdbOptions />
   <objfiles />
   <linkswitches />
-  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictSDL2.lib;DerelictASSIMP3.lib;DerelictIL.lib;DerelictLua.lib;aws_wrapd.lib</libfiles>
+  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictSDL2.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib</libfiles>
   <libpaths>$(ProjectDir)\lib\</libpaths>
   <deffile />
   <resfile />

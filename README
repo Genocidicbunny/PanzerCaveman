@@ -2,9 +2,42 @@ Panzer Caveman 25th Anniversary Edition
 
 
 Dependencies:
+DerelictUtil
 DerelictGL3
 DerelictSDL2
 DerelictASSIMP3
 DerelictLua
-DerelictIL
+DerelictFI
 aws_wrapd (https://github.com/Genocidicbunny/aws_wrap)
+
+Place the appropriate .lib files in the lib/ directory:
+
+lib/
+	DerelictUtil.lib
+	DerelictGL3.lib
+	DerelictSDL2.lib
+	DerelictASSIMP3.lib
+	DerelictLua.lib
+	DerelictFI.lib
+	aws_wrapd.lib
+
+In addition, many of these libraries require additional binaries. These should be placed in bin/ as follows:
+
+bin/
+	Assimp32.dll (If building a 32-bit app)
+	Assimp64.dll (If building a 64-bit app)
+	FreeImage.dll
+	lua52.dll
+	SDL2.dll
+	//And for awesomium: (Basically the awesomium redistributable + aws_wrap.dll)
+	aws_wrap.dll
+	avcodec-53.dll
+	avformat-53.dll
+	avutil-51.dll
+	awesomium.dll
+	icudt.dll
+	libEGL.dll
+	libGLESv2.dll
+	xinput9_1_0.dll
+	awesomium_process.exe
+	
