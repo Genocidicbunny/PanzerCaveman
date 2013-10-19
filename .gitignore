@@ -2,5 +2,4 @@ PanzerCaveman\Debug\*
 PanzerCaveman\Release\*
 *.suo
 *.sdf
-PanzerCaveman\lib\*.lib
-PanzerCaveman\bin\*
+*.lib
