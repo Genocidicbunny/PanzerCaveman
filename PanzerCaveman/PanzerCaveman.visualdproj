@@ -35,7 +35,7 @@
   <useInline>0</useInline>
   <release>0</release>
   <preservePaths>0</preservePaths>
-  <warnings>0</warnings>
+  <warnings>1</warnings>
   <infowarnings>0</infowarnings>
   <checkProperty>0</checkProperty>
   <genStackFrame>0</genStackFrame>
@@ -83,7 +83,7 @@
   <cv2pdbOptions />
   <objfiles />
   <linkswitches />
-  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictSDL2.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib</libfiles>
+  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictGLFW3.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib;SOILd.lib</libfiles>
   <libpaths>&quot;$(ProjectDir)\lib\&quot;</libpaths>
   <deffile />
   <resfile />
@@ -99,7 +99,7 @@
   <link>0</link>
   <lib>0</lib>
   <subsystem>0</subsystem>
-  <multiobj>0</multiobj>
+  <multiobj>1</multiobj>
   <singleFileCompilation>0</singleFileCompilation>
   <oneobj>0</oneobj>
   <trace>0</trace>
@@ -177,7 +177,7 @@
   <cv2pdbOptions />
   <objfiles />
   <linkswitches />
-  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictSDL2.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib</libfiles>
+  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictGLFW3.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib;SOILd.lib</libfiles>
   <libpaths>$(ProjectDir)\lib\</libpaths>
   <deffile />
   <resfile />
@@ -191,8 +191,10 @@
  <Folder name="PanzerCaveman">
   <Folder name="Import" />
   <Folder name="src">
-   <File path="src\Game.d" />
+   <File path="src\game.d" />
+   <File path="src\logger.d" />
   </Folder>
   <File path="main.d" />
+  <File path="PanzerException.d" />
  </Folder>
 </DProject>

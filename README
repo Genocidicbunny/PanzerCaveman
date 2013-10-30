@@ -4,7 +4,7 @@ Panzer Caveman 25th Anniversary Edition
 Dependencies:
 DerelictUtil
 DerelictGL3
-DerelictSDL2
+DerelictGLFW3
 DerelictASSIMP3
 DerelictLua
 DerelictFI
@@ -15,7 +15,7 @@ Place the appropriate .lib files in the lib/ directory:
 lib/
 	DerelictUtil.lib
 	DerelictGL3.lib
-	DerelictSDL2.lib
+	DerelictGLFW3.lib
 	DerelictASSIMP3.lib
 	DerelictLua.lib
 	DerelictFI.lib
@@ -28,7 +28,6 @@ bin/
 	Assimp64.dll (If building a 64-bit app)
 	FreeImage.dll
 	lua52.dll
-	SDL2.dll
 	//And for awesomium: (Basically the awesomium redistributable + aws_wrap.dll)
 	aws_wrap.dll
 	avcodec-53.dll

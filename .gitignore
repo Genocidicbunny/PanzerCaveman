@@ -3,3 +3,4 @@ PanzerCaveman\Release\*
 *.suo
 *.sdf
 *.lib
+*.log
