@@ -1,21 +1,19 @@
-import pzc.logger;
+import pzc.game;
 import std.conv;
 import std.stdio;
 
 int main(string[] argv)
 {
-	Logger testLogger1 = new Logger("tl.log", "./");
-	Logger testLogger2 = new Logger("testlog.log", "./logs/");
-
-	testLogger1.run();
-	testLogger2.run();
-	for(int i = 0; i < 100000; ++i) {
-		testLogger1.log_error("Testing logger 1 " ~ to!string(i));
-		testLogger2.log_error("Testing logger 2 " ~	to!string(i));
+	try{
+		auto pzc_game = new Game();
+		pzc_game.initialize();
+		pzc_game.shutdown();
+	} catch(Exception e) {
+		writeln(e);
 	}
-	testLogger1.stop();
-	testLogger2.stop();
-	writeln("Loggers stopped");
+	while(true) {
+	
+	}
 	return 0;
 }
 

@@ -37,7 +37,7 @@ Thanks to:
 * everybody at gamedev.net
 **/
 
-module soild.soil;
+module soild.soild;
 
 extern (C)
 {

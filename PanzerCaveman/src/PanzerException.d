@@ -1,6 +1,6 @@
-module pzc.PanzerException;
+module pzc.pzcexception;
 
-class PanzerCavemanException : Exception {
+class  PZCException : Exception {
 private:
 
 public:

@@ -35,7 +35,7 @@
   <useInline>0</useInline>
   <release>0</release>
   <preservePaths>0</preservePaths>
-  <warnings>1</warnings>
+  <warnings>0</warnings>
   <infowarnings>0</infowarnings>
   <checkProperty>0</checkProperty>
   <genStackFrame>0</genStackFrame>
@@ -193,8 +193,8 @@
   <Folder name="src">
    <File path="src\game.d" />
    <File path="src\logger.d" />
+   <File path="src\PanzerException.d" />
   </Folder>
   <File path="main.d" />
-  <File path="PanzerException.d" />
  </Folder>
 </DProject>
