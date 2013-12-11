@@ -64,9 +64,9 @@
   <doXGeneration>1</doXGeneration>
   <xfilename>$(IntDir)\$(TargetName).json</xfilename>
   <debuglevel>0</debuglevel>
-  <debugids />
+  <debugids>rendering</debugids>
   <versionlevel>0</versionlevel>
-  <versionids />
+  <versionids>enable_logging;SleepMainLoop;HeartbeatMainLoop</versionids>
   <dump_source>0</dump_source>
   <mapverbosity>0</mapverbosity>
   <createImplib>0</createImplib>
@@ -83,13 +83,13 @@
   <cv2pdbOptions />
   <objfiles />
   <linkswitches />
-  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictGLFW3.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib;SOILd.lib</libfiles>
+  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictGLFW3.lib;DerelictASSIMP3.lib;DerelictPhysFS.lib;DerelictLua.lib;aws_wrapd.lib;SOILd.lib;gl3n.lib</libfiles>
   <libpaths>&quot;$(ProjectDir)\lib\&quot;</libpaths>
   <deffile />
   <resfile />
   <exefile>$(OutDir)\$(ProjectName).exe</exefile>
   <useStdLibPath>1</useStdLibPath>
-  <additionalOptions>-v -I&quot;$(ProjectDir)\lib\&quot;</additionalOptions>
+  <additionalOptions>-I&quot;$(ProjectDir)\lib\&quot;</additionalOptions>
   <preBuildCommand />
   <postBuildCommand>copy &quot;$(ProjectDir)\bin\*.*&quot; &quot;$(ProjectDir)\Debug&quot; /Y</postBuildCommand>
   <filesToClean>*.obj;*.cmd;*.build;*.json;*.dep</filesToClean>
@@ -141,7 +141,7 @@
   <compiler>0</compiler>
   <otherDMD>0</otherDMD>
   <program>$(DMDInstallDir)windows\bin\dmd.exe</program>
-  <imppath>$(ProjectDir)\lib\derelict\</imppath>
+  <imppath />
   <fileImppath />
   <outdir>$(ConfigurationName)</outdir>
   <objdir>$(OutDir)</objdir>
@@ -160,7 +160,7 @@
   <debuglevel>0</debuglevel>
   <debugids />
   <versionlevel>0</versionlevel>
-  <versionids />
+  <versionids>enable_logging;SleepMainLoop</versionids>
   <dump_source>0</dump_source>
   <mapverbosity>0</mapverbosity>
   <createImplib>0</createImplib>
@@ -177,22 +177,76 @@
   <cv2pdbOptions />
   <objfiles />
   <linkswitches />
-  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictGLFW3.lib;DerelictASSIMP3.lib;DerelictFI.lib;DerelictLua.lib;aws_wrapd.lib;SOILd.lib</libfiles>
-  <libpaths>$(ProjectDir)\lib\</libpaths>
+  <libfiles>DerelictGL3.lib;DerelictUtil.lib;DerelictGLFW3.lib;DerelictASSIMP3.lib;DerelictPhysFS.lib;DerelictLua.lib;aws_wrapd.lib;SOILd.lib;gl3n.lib</libfiles>
+  <libpaths>&quot;$(ProjectDir)\lib\&quot;</libpaths>
   <deffile />
   <resfile />
   <exefile>$(OutDir)\$(ProjectName).exe</exefile>
   <useStdLibPath>1</useStdLibPath>
-  <additionalOptions>-v -I&quot;$(ProjectDir)\lib\&quot;</additionalOptions>
+  <additionalOptions>-I&quot;$(ProjectDir)\lib\&quot;</additionalOptions>
   <preBuildCommand />
   <postBuildCommand>copy &quot;$(ProjectDir)\bin\*.*&quot; &quot;$(ProjectDir)\Release&quot; /Y</postBuildCommand>
   <filesToClean>*.obj;*.cmd;*.build;*.json;*.dep</filesToClean>
  </Config>
  <Folder name="PanzerCaveman">
-  <Folder name="Import" />
+  <Folder name="Import">
+   <Folder name="awesomium">
+    <File path="lib\awesomium\capi.d" />
+    <File path="lib\awesomium\common.d" />
+    <File path="lib\awesomium\dapi.d" />
+    <File path="lib\awesomium\inputevt.d" />
+    <File path="lib\awesomium\surface.d" />
+    <File path="lib\awesomium\util.d" />
+    <File path="lib\awesomium\webcore.d" />
+    <File path="lib\awesomium\websession.d" />
+    <File path="lib\awesomium\webstring.d" />
+    <File path="lib\awesomium\weburl.d" />
+    <File path="lib\awesomium\webview.d" />
+   </Folder>
+   <Folder name="dchip">
+    <File path="lib\dchip\all.d" />
+    <File path="lib\dchip\chipmunk.d" />
+    <File path="lib\dchip\chipmunk_private.d" />
+    <File path="lib\dchip\chipmunk_types.d" />
+    <File path="lib\dchip\constraints_util.d" />
+    <File path="lib\dchip\cpArbiter.d" />
+    <File path="lib\dchip\cpArray.d" />
+    <File path="lib\dchip\cpBB.d" />
+    <File path="lib\dchip\cpBBTree.d" />
+    <File path="lib\dchip\cpBody.d" />
+    <File path="lib\dchip\cpCollision.d" />
+    <File path="lib\dchip\cpConstraint.d" />
+    <File path="lib\dchip\cpDampedRotarySpring.d" />
+    <File path="lib\dchip\cpDampedSpring.d" />
+    <File path="lib\dchip\cpGearJoint.d" />
+    <File path="lib\dchip\cpGrooveJoint.d" />
+    <File path="lib\dchip\cpHashSet.d" />
+    <File path="lib\dchip\cpPinJoint.d" />
+    <File path="lib\dchip\cpPivotJoint.d" />
+    <File path="lib\dchip\cpPolyShape.d" />
+    <File path="lib\dchip\cpRatchetJoint.d" />
+    <File path="lib\dchip\cpRotaryLimitJoint.d" />
+    <File path="lib\dchip\cpShape.d" />
+    <File path="lib\dchip\cpSimpleMotor.d" />
+    <File path="lib\dchip\cpSlideJoint.d" />
+    <File path="lib\dchip\cpSpace.d" />
+    <File path="lib\dchip\cpSpaceComponent.d" />
+    <File path="lib\dchip\cpSpaceHash.d" />
+    <File path="lib\dchip\cpSpaceQuery.d" />
+    <File path="lib\dchip\cpSpaceStep.d" />
+    <File path="lib\dchip\cpSpatialIndex.d" />
+    <File path="lib\dchip\cpSweep1D.d" />
+    <File path="lib\dchip\cpVect.d" />
+    <File path="lib\dchip\package.d" />
+    <File path="lib\dchip\prime.d" />
+    <File path="lib\dchip\util.d" />
+   </Folder>
+  </Folder>
   <Folder name="src">
    <File path="src\game.d" />
+   <File path="src\input_manager.d" />
    <File path="src\logger.d" />
+   <File path="src\math.d" />
    <File path="src\PanzerException.d" />
   </Folder>
   <File path="main.d" />
