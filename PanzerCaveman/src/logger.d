@@ -44,10 +44,10 @@ public {
 			run();
 		}
 
-		void log(string severity, string message, string file = __FILE__, string func = __FUNCTION__, size_t line = __LINE__)
+		void log(string severity, string message)
 		{
 			assert(running, "Logger needs to be running first!");
-			send(writer_thread, Clock.currTime(), severity, message, file, func, line);
+			send(writer_thread, Clock.currTime(), severity, message);
 		}
 		void log_simple(T...)(string fmt, T args) 
 		{
@@ -77,21 +77,21 @@ public {
 		}
 
 		private {
-			void log_error_i(string message, string file = __FILE__, string func = __FUNCTION__, size_t line = __LINE__)
+			void log_error_i(string message)
 			{
-				log("ERROR", message, file, func, line);
+				log("ERROR", message);
 			}
-			void log_debug_i(string message, string file = __FILE__, string func = __FUNCTION__, size_t line = __LINE__)
+			void log_debug_i(string message)
 			{
-				log("DEBUG", message, file, func, line);
+				log("DEBUG", message);
 			}
-			void log_warn_i(string message, string file = __FILE__, string func = __FUNCTION__, size_t line = __LINE__)
+			void log_warn_i(string message)
 			{
-				log("WARNING", message, file, func, line);
+				log("WARNING", message);
 			}
-			void log_info_i(string message, string file = __FILE__, string func = __FUNCTION__, size_t line = __LINE__)
+			void log_info_i(string message)
 			{
-				log("INFO", message, file, func, line);
+				log("INFO", message);
 			}
 		}
 
@@ -110,6 +110,14 @@ public {
 
 		@property size_t LogQueueSize() { return writer_queue_size; }
 		@property size_t LogQueueSize(size_t lqs) { return writer_queue_size = lqs; }
+
+		@property string FullPathname() {	
+			if(!running) { 
+				return log_path ~ log_filename; 
+			} else {
+				return full_pathname;
+			} 
+		}
 
 		@property bool isRunning() { return running; }
 
@@ -132,9 +140,12 @@ public {
 					log_path = ".";
 				}
 			}
+			
+			//set the full pathname;
+			full_pathname = log_path ~ log_filename;
 
 			////spawn logging thread
-			writer_thread = spawn(&logger_runner, log_path ~ log_filename, overwrite_log, writer_sleep_interval, writer_queue_size);
+			writer_thread = spawn(&logger_runner, full_pathname, overwrite_log, writer_sleep_interval, writer_queue_size);
 			//Get okay back from thread
 			receive((bool started) {
 						running = started;
@@ -153,6 +164,7 @@ public {
 	private:
 		string log_filename;
 		string log_path;
+		string full_pathname;
 		bool overwrite_log;	 //Overwrite existing log files?
 		long writer_sleep_interval; //Max sleep interval for writer thread
 		size_t writer_queue_size; //Max number of unlogged messages (currently anything past this is ignored)
@@ -192,23 +204,21 @@ private {
 			while(has_msg) {
 				has_msg = receiveTimeout(
 							 dur!("msecs")(sleep_interval),
-							 (SysTime s, string msg) { writeln("simple_log_msg"); write_simple_log_message(log_fh, s, msg); },
-							 (SysTime s, string sev, string msg, string fl, string fn, size_t ln) { writeln("log_msg");write_log_message(log_fh, s, sev, msg, fl ~":" ~ fn ~":" ~ to!string(ln)); },
-							 (bool shutdown) { writeln("shutdown");if(shutdown) thread_running = false;},
-							 (OwnerTerminated ot) { writeln("OwnerTerminated"); thread_running = false;},
+							 (SysTime s, string msg) { write_simple_log_message(log_fh, s, msg); },
+							 (SysTime s, string sev, string msg) { write_log_message(log_fh, s, sev, msg); },
+							 (bool shutdown) { if(shutdown) thread_running = false;},
+							 (OwnerTerminated ot) { thread_running = false;},
 							 (Variant other) { debug {writeln(other); }} //silently ignore
 						);
 				debug {
 					//if(has_msg) writef("Got a message from parent\n");
 				}
 			}
-			writeln("Flushing log file");
 			log_fh.flush();
 
 			//sleep the thread until the next interval 
 			if(thread_running == true) { //ignore sleep if we're exiting
 				frame_duration = (TickDuration.currSystemTick.msecs() - frame_start.msecs()) % sleep_interval;
-				writef("Sleep duration %d", sleep_interval - frame_duration);
 				Thread.sleep(dur!("msecs")(sleep_interval - frame_duration));
 			}
 		}
@@ -223,15 +233,14 @@ private {
 		return;
 	};
 
-	void write_log_message(ref File logfile, SysTime time, string severity, string msg, string debug_inf){
+	void write_log_message(ref File logfile, SysTime time, string severity, string msg){
 		assert(logfile.isOpen, "logfile is not open!");
-		logfile.writef("[%s] %02d:%02d:%03d %s [%s]\n",
+		logfile.writef("[%s] %02d:%02d:%03d %s\n",
 					severity,
 					time.hour,
 					time.minute,
 					time.fracSec.msecs,
-					msg,
-					debug_inf);
+					msg);
 	}
 	void write_simple_log_message(ref File logfile, SysTime time, string msg) {
 		assert(logfile.isOpen, "logfile is not open!");
